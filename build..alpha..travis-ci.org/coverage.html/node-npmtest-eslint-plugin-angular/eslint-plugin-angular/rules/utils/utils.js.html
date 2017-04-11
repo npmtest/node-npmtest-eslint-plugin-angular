@@ -1,0 +1,2060 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-eslint-plugin-angular/eslint-plugin-angular/rules/utils/utils.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-eslint-plugin-angular">npmtest-eslint-plugin-angular (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-eslint-plugin-angular/eslint-plugin-angular/rules/utils/utils.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">36.11% <small>(39 / 108)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 140)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 36)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">36.11% <small>(39 / 108)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-eslint-plugin-angular/eslint-plugin-angular/rules/utils/</a> &#187; utils.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+var falseConfigValues = require('./false-values').config;
+var falseRunValues = require('./false-values').run;
+&nbsp;
+var scopeProperties = [
+    '$id',
+    '$parent',
+    '$root',
+    '$destroy',
+    '$broadcast',
+    '$emit',
+    '$on',
+    '$applyAsync',
+    '$apply',
+    '$evalAsync',
+    '$eval',
+    '$digest',
+    '$watchCollection',
+    '$watchGroup',
+    '$watch',
+    '$new'
+];
+&nbsp;
+&nbsp;
+module.exports = {
+    // Properties
+    scopeProperties: scopeProperties,
+&nbsp;
+    // Functions
+    convertPrefixToRegex: convertPrefixToRegex,
+    convertStringToRegex: convertStringToRegex,
+    isTypeOfStatement: isTypeOfStatement,
+    isToStringStatement: isToStringStatement,
+    isArrayType: isArrayType,
+    isFunctionType: isFunctionType,
+    isNamedInlineFunction: isNamedInlineFunction,
+    isIdentifierType: isIdentifierType,
+    isMemberExpression: isMemberExpression,
+    isLiteralType: isLiteralType,
+    isCallExpression: isCallExpression,
+    isEmptyFunction: isEmptyFunction,
+    isStringRegexp: isStringRegexp,
+    isAngularComponent: isAngularComponent,
+    isAngularComponentDeclaration: isAngularComponentDeclaration,
+    isAngularControllerDeclaration: isAngularControllerDeclaration,
+    isAngularFilterDeclaration: isAngularFilterDeclaration,
+    isAngularDirectiveDeclaration: isAngularDirectiveDeclaration,
+    isAngularServiceDeclarationDeprecated: isAngularServiceDeclarationDeprecated,
+    isAngularServiceDeclaration: isAngularServiceDeclaration,
+    isAngularProviderDeclaration: isAngularProviderDeclaration,
+    isAngularFactoryDeclaration: isAngularFactoryDeclaration,
+    isAngularConstantDeclaration: isAngularConstantDeclaration,
+    isAngularValueDeclaration: isAngularValueDeclaration,
+    isAngularModuleDeclaration: isAngularModuleDeclaration,
+    isAngularModuleGetter: isAngularModuleGetter,
+    isAngularRunSection: isAngularRunSection,
+    isAngularConfigSection: isAngularConfigSection,
+    isRouteDefinition: isRouteDefinition,
+    isUIRouterStateDefinition: isUIRouterStateDefinition,
+    findIdentiferInScope: findIdentiferInScope,
+    getControllerDefinition: getControllerDefinition,
+    isAngularServiceImport: isAngularServiceImport,
+    getToStringTagType: getToStringTagType
+};
+&nbsp;
+&nbsp;
+/**
+ * Recursively grab the callee until an Identifier is found.
+ *
+ * @todo Needs better documentation.
+ */
+<span class="fstat-no" title="function not covered" >function getCallingIdentifier(calleeObject) {</span>
+<span class="cstat-no" title="statement not covered" >    if (calleeObject.type &amp;&amp; calleeObject.type === 'Identifier') {</span>
+<span class="cstat-no" title="statement not covered" >        return calleeObject;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (calleeObject.callee &amp;&amp; calleeObject.callee.object) {</span>
+<span class="cstat-no" title="statement not covered" >        return getCallingIdentifier(calleeObject.callee.object);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return null;</span>
+}
+&nbsp;
+/**
+ * Convert a prefix string to a RegExp.
+ *
+ * `'/app/'` → `/app.*\/`
+ *
+ * @param {string} prefix
+ * @returns {RegExp}
+ */
+<span class="fstat-no" title="function not covered" >function convertPrefixToRegex(prefix) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof prefix !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        return prefix;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (prefix[0] === '/' &amp;&amp; prefix[prefix.length - 1] === '/') {</span>
+<span class="cstat-no" title="statement not covered" >        prefix = prefix.substring(1, prefix.length - 1);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return new RegExp(prefix + '.*');</span>
+}
+&nbsp;
+/**
+ * Convert a string to a RegExp.
+ *
+ * `'app'` → `/app/`
+ * `'/app/'` → `/app/`
+ *
+ * @param {string} prefix
+ * @returns {RegExp}
+ */
+<span class="fstat-no" title="function not covered" >function convertStringToRegex(string) {</span>
+<span class="cstat-no" title="statement not covered" >    if (string[0] === '/' &amp;&amp; string[string.length - 1] === '/') {</span>
+<span class="cstat-no" title="statement not covered" >        string = string.substring(1, string.length - 2);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return new RegExp(string);</span>
+}
+&nbsp;
+/**
+ * @todo Missing documentation
+ */
+<span class="fstat-no" title="function not covered" >function isTypeOfStatement(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node.type === 'Identifier' || (node.type === 'UnaryExpression' &amp;&amp; node.operator === 'typeof');</span>
+}
+&nbsp;
+/**
+ * @todo Missing documentation
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is a `toString` statement.
+ */
+<span class="fstat-no" title="function not covered" >function isToStringStatement(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node.type === 'CallExpression' &amp;&amp;</span>
+        node.callee.type === 'MemberExpression' &amp;&amp;
+        node.callee.object.type === 'MemberExpression' &amp;&amp;
+        node.callee.object.property.name === 'toString' &amp;&amp;
+        node.callee.property.name === 'call' &amp;&amp;
+        node.callee.object.object.type === 'MemberExpression' &amp;&amp;
+        node.callee.object.object.object.name === 'Object' &amp;&amp;
+        node.callee.object.object.property.name === 'prototype';
+}
+&nbsp;
+/**
+ * Check whether or not a node is an ArrayExpression.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is an ArrayExpression.
+ */
+<span class="fstat-no" title="function not covered" >function isArrayType(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node !== undefined &amp;&amp; node.type === 'ArrayExpression';</span>
+}
+&nbsp;
+/**
+ * Check whether or not a node is an FunctionExpression.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is an FunctionExpression.
+ */
+<span class="fstat-no" title="function not covered" >function isFunctionType(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node !== undefined &amp;&amp; (node.type === 'FunctionExpression' || node.type === 'ArrowFunctionExpression');</span>
+}
+&nbsp;
+/**
+ * Check whether or not a node is an named FunctionExpression.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is an named FunctionExpression.
+ */
+<span class="fstat-no" title="function not covered" >function isNamedInlineFunction(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return this.isFunctionType(node) &amp;&amp; node.id &amp;&amp; node.id.name &amp;&amp; node.id.name.length &gt; 0;</span>
+}
+&nbsp;
+/**
+ * Check whether or not a node is an Identifier.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is an Identifier.
+ */
+<span class="fstat-no" title="function not covered" >function isIdentifierType(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node !== undefined &amp;&amp; node.type === 'Identifier';</span>
+}
+&nbsp;
+/**
+ * Check whether or not a node is an MemberExpression.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is an MemberExpression.
+ */
+<span class="fstat-no" title="function not covered" >function isMemberExpression(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node !== undefined &amp;&amp; node.type === 'MemberExpression';</span>
+}
+&nbsp;
+/**
+ * Check whether or not a node is an Literal.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is an Literal.
+ */
+<span class="fstat-no" title="function not covered" >function isLiteralType(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node !== undefined &amp;&amp; node.type === 'Literal';</span>
+}
+&nbsp;
+/**
+ * Check whether or not a node is a CallExpression.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is a CallExpression.
+ */
+<span class="fstat-no" title="function not covered" >function isCallExpression(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node !== undefined &amp;&amp; node.type === 'CallExpression';</span>
+}
+&nbsp;
+/**
+ * Check whether or not a node is an isEmptyFunction.
+ *
+ * @param {Object} node The node to check.
+ * @returns {boolean} Whether or not the node is an isEmptyFunction.
+ */
+<span class="fstat-no" title="function not covered" >function isEmptyFunction(fn) {</span>
+<span class="cstat-no" title="statement not covered" >    return fn.body.body.length === 0;</span>
+}
+&nbsp;
+/**
+ * Check whether or not a string resembles a regular expression.
+ *
+ * A string is considered a regular expression if it starts and ends with `/`.
+ *
+ * @param {string} The string to check.
+ * @returns {boolean} Whether or not a string resembles a regular expression.
+ */
+<span class="fstat-no" title="function not covered" >function isStringRegexp(string) {</span>
+<span class="cstat-no" title="statement not covered" >    return string[0] === '/' &amp;&amp; string[string.length - 1] === '/';</span>
+}
+&nbsp;
+/**
+ * Check if a CallExpression node somewhat resembles an Angular component.
+ *
+ * The following are considered Angular components
+ * ```js
+ * app.factory('kittenService', function() {})
+ *     ^^^^^^^
+ * app.factory('kittenService', kittenService)
+ *     ^^^^^^^
+ * app.factory('kittenService', [])
+ *     ^^^^^^^
+ * app.factory('kittenService', require(""))
+ *     ^^^^^^^
+ * asyncFn('value', callback)
+ * ^^^^^^^
+ * ```
+ *
+ * @todo FIXME
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node somewhat resembles an Angular component.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularComponent(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node.arguments !== undefined &amp;&amp;</span>
+        node.arguments.length === 2 &amp;&amp;
+        (isLiteralType(node.arguments[0]) || isIdentifierType(node.arguments[0])) &amp;&amp;
+        (isIdentifierType(node.arguments[1]) ||
+         isFunctionType(node.arguments[1]) ||
+         isArrayType(node.arguments[1]) ||
+         isCallExpression(node.arguments[1]));
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines an Angular component.
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines an Angular component.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularComponentDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node.arguments !== undefined &amp;&amp;</span>
+        node.arguments.length === 2 &amp;&amp;
+        isLiteralType(node.arguments[0]) &amp;&amp;
+        node.arguments[1].type === 'ObjectExpression' &amp;&amp;
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.property.name === 'component';
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines an Angular controller.
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines an Angular controller.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularControllerDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.property.name === 'controller';
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines an Angular filter.
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines an Angular filter.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularFilterDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.property.name === 'filter';
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines an Angular directive.
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines an Angular directive.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularDirectiveDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.property.name === 'directive';
+}
+&nbsp;
+/**
+ * Check whether a node defines an Angular service.
+ *
+ * The following are considered services
+ * ```js
+ * app.provider('kittenServiceProvider', function() {})
+ *     ^^^^^^^^
+ * app.factory('kittenService', function() {})
+ *     ^^^^^^^
+ * app.service('kittenService', function() {})
+ *     ^^^^^^^
+ * app.constant('KITTENS', function() {})
+ *     ^^^^^^^^
+ * app.value('KITTENS', function() {})
+ *     ^^^^^
+ * ```
+ *
+ * The following are not considered services
+ * ```js
+ * $provide.factory('kittenService', function() {})
+ * app.constant('KITTENS', 'meow')
+ * app.value('KITTENS', 'purr')
+ * this.$get = function() {}
+ * ```
+ *
+ * @todo FIXME
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines an Angular controller.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularServiceDeclarationDeprecated(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.object.name !== '$provide' &amp;&amp;
+        (node.callee.property.name === 'provider' ||
+         node.callee.property.name === 'service' ||
+         node.callee.property.name === 'factory' ||
+         node.callee.property.name === 'constant' ||
+         node.callee.property.name === 'value');
+}
+&nbsp;
+/*
+ * @param {Object}
+ * @returns {boolean}
+ */
+<span class="fstat-no" title="function not covered" >function isAngularServiceDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.object.name !== '$provide' &amp;&amp;
+        node.callee.property.name === 'service';
+}
+&nbsp;
+/*
+ * @param {Object}
+ * @returns {boolean}
+ */
+<span class="fstat-no" title="function not covered" >function isAngularProviderDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.object.name !== '$provide' &amp;&amp;
+        node.callee.property.name === 'provider';
+}
+&nbsp;
+/*
+ * @param {Object}
+ * @returns {boolean}
+ */
+<span class="fstat-no" title="function not covered" >function isAngularFactoryDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.object.name !== '$provide' &amp;&amp;
+        node.callee.property.name === 'factory';
+}
+&nbsp;
+/*
+ * @param {Object}
+ * @returns {boolean}
+ */
+<span class="fstat-no" title="function not covered" >function isAngularConstantDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.object.name !== '$provide' &amp;&amp;
+        node.callee.property.name === 'constant';
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function isAngularValueDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.object.name !== '$provide' &amp;&amp;
+        node.callee.property.name === 'value';
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node declares an Angular module.
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node declares an Angular module.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularModuleDeclaration(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isAngularComponent(node) &amp;&amp;</span>
+        isMemberExpression(node.callee) &amp;&amp;
+        node.callee.property.name === 'module';
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node gets or declares an Angular module.
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node gets or declares an Angular module.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularModuleGetter(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return node.arguments !== undefined &amp;&amp;</span>
+        node.arguments.length &gt; 0 &amp;&amp;
+        (isLiteralType(node.arguments[0]) || isIdentifierType(node.arguments[0])) &amp;&amp;
+        node.callee.type === 'MemberExpression' &amp;&amp;
+        node.callee.property.name === 'module';
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines an Angular run function.
+ *
+ * The following are considered run functions
+ * ```js
+ * app.run()
+ *     ^^^
+ * app.run(function() {})
+ *     ^^^
+ * ```
+ *
+ * The following are not considered run functions
+ * ```js
+ * angular.module('myApp').run(function() {})
+ * angular.module('myApp', []).run(function() {})
+ * mocha.run()
+ * ```
+ *
+ * @todo FIXME
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines an Angular run function.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularRunSection(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isMemberExpression(node.callee) &amp;&amp;</span>
+        node.callee.property.type === 'Identifier' &amp;&amp;
+        node.callee.property.name === 'run' &amp;&amp;
+        !falseRunValues.find(pattern =&gt; <span class="cstat-no" title="statement not covered" >new RegExp(pattern).test(node.callee.object.name))</span>;
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines an Angular config function.
+ *
+ * The following are considered config functions
+ * ```js
+ * app.config()
+ *     ^^^^^^
+ * app.config(function() {})
+ *     ^^^^^^
+ * ```
+ *
+ * The following are not considered run functions
+ * ```js
+ * angular.module('myApp').config(function() {})
+ * angular.module('myApp', []).config(function() {})
+ * ```
+ *
+ * @todo FIXME
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines an Angular config function.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularConfigSection(node) {</span>
+<span class="cstat-no" title="statement not covered" >    return isMemberExpression(node.callee) &amp;&amp;</span>
+     node.callee.property.type === 'Identifier' &amp;&amp;
+     node.callee.property.name === 'config' &amp;&amp;
+     !falseConfigValues.find(pattern =&gt; <span class="cstat-no" title="statement not covered" >new RegExp(pattern).test(node.callee.object.name))</span>;
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines a route using $routeProvider.
+ *
+ * The following are considered routes:
+ * ```js
+ * $routeProvider.when()
+ *                ^^^^
+ * ```
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines a route.
+ */
+<span class="fstat-no" title="function not covered" >function isRouteDefinition(node) {</span>
+    // the route def function is .when(), so when we find that, go up through the chain and make sure
+    // $routeProvider is the calling object
+<span class="cstat-no" title="statement not covered" >    if (node.callee.property &amp;&amp; node.callee.property.name === 'when') {</span>
+<span class="cstat-no" title="statement not covered" >        var callObject = getCallingIdentifier(node.callee.object);</span>
+<span class="cstat-no" title="statement not covered" >        return callObject &amp;&amp; callObject.name === '$routeProvider';</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+}
+&nbsp;
+/**
+ * Check whether a CallExpression node defines a state using $stateProvider.
+ *
+ * The following are considered states:
+ * ```js
+ * $stateProvider.state()
+ *                ^^^^^
+ * ```
+ *
+ * @param {Object} node The CallExpression node to check.
+ * @returns {boolean} Whether or not the node defines a state.
+ */
+<span class="fstat-no" title="function not covered" >function isUIRouterStateDefinition(node) {</span>
+    // the state def function is .state(), so when we find that, go up through the chain and make sure
+    // $stateProvider is the calling object
+<span class="cstat-no" title="statement not covered" >    if (node.callee.property &amp;&amp; node.callee.property.name === 'state') {</span>
+<span class="cstat-no" title="statement not covered" >        var callObject = getCallingIdentifier(node.callee.object);</span>
+<span class="cstat-no" title="statement not covered" >        return callObject &amp;&amp; callObject.name === '$stateProvider';</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return false;</span>
+}
+&nbsp;
+/**
+ * Find an identifier node in the current scope.
+ *
+ * @param {Object} context The context to use to get the scope.
+ * @param {Object} identifier The identifier node to look up.
+ *
+ * @returns {Object} The node declaring the identifier.
+ */
+<span class="fstat-no" title="function not covered" >function findIdentiferInScope(context, identifier) {</span>
+<span class="cstat-no" title="statement not covered" >    var identifierNode = null;</span>
+<span class="cstat-no" title="statement not covered" >    context.getScope().variables.forEach(<span class="fstat-no" title="function not covered" >function(variable) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (variable.name === identifier.name) {</span>
+<span class="cstat-no" title="statement not covered" >            identifierNode = variable.defs[0].node;</span>
+<span class="cstat-no" title="statement not covered" >            if (identifierNode.type === 'VariableDeclarator') {</span>
+<span class="cstat-no" title="statement not covered" >                identifierNode = identifierNode.init;</span>
+            }
+        }
+    });
+<span class="cstat-no" title="statement not covered" >    return identifierNode;</span>
+}
+&nbsp;
+/**
+ * Find the function definition of a controller in the current context.
+ *
+ * @param {Object} context The context to use to find the controller declaration.
+ * @param {Object} node The Angular controller call to look up the declaration for.
+ *
+ * @returns {Object} The identifier declaring the controller function.
+ */
+<span class="fstat-no" title="function not covered" >function getControllerDefinition(context, node) {</span>
+<span class="cstat-no" title="statement not covered" >    var controllerArg = node.arguments[1];</span>
+&nbsp;
+    // Three ways of creating a controller function: function expression,
+    // variable name that references a function, and an array with a function
+    // as the last item
+<span class="cstat-no" title="statement not covered" >    if (isFunctionType(controllerArg)) {</span>
+<span class="cstat-no" title="statement not covered" >        return controllerArg;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (isArrayType(controllerArg)) {</span>
+<span class="cstat-no" title="statement not covered" >        controllerArg = controllerArg.elements[controllerArg.elements.length - 1];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (isIdentifierType(controllerArg)) {</span>
+<span class="cstat-no" title="statement not covered" >            return findIdentiferInScope(context, controllerArg);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return controllerArg;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (isIdentifierType(controllerArg)) {</span>
+<span class="cstat-no" title="statement not covered" >        return findIdentiferInScope(context, controllerArg);</span>
+    }
+}
+&nbsp;
+/**
+ * Check if the imported service support these two syntaxes : serviceName and _serviceName_
+ *
+ * @param {string} parameterName The label of the parameter.
+ * @param {string} serviceName The name of the service.
+ *
+ * @returns {boolean} True if the service use on of these previous syntaxes.
+ */
+<span class="fstat-no" title="function not covered" >function isAngularServiceImport(parameterName, serviceName) {</span>
+<span class="cstat-no" title="statement not covered" >    var r = new RegExp('^\_?' + serviceName.replace(/[!@#$%^&amp;*()+=\-[\]\\';,./{}|":&lt;&gt;?~_]/g, '\\$&amp;') + '\_?$', 'i');</span>
+<span class="cstat-no" title="statement not covered" >    return r.test(parameterName);</span>
+}
+&nbsp;
+/**
+ * Return the value of the given param that retrieved by Object#toString()
+ *
+ * @param {*} obj
+ * @return {string}
+ */
+<span class="fstat-no" title="function not covered" >function getToStringTagType(obj) {</span>
+<span class="cstat-no" title="statement not covered" >    return Object.prototype.toString.apply(obj)</span>
+        .match(/^\[object\s(.+)]$/)[1];
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 22:09:38 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
