@@ -1,7 +1,7 @@
 # test coverage for  [eslint-plugin-angular (v2.3.0)](https://github.com/Gillespie59/eslint-plugin-angularjs)  [![npm package](https://img.shields.io/npm/v/npmtest-eslint-plugin-angular.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-eslint-plugin-angular) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-eslint-plugin-angular.svg)](https://travis-ci.org/npmtest/node-npmtest-eslint-plugin-angular)
 #### ESLint rules for AngularJS projects
 
-[![NPM](https://nodei.co/npm/eslint-plugin-angular.png?downloads=true)](https://www.npmjs.com/package/eslint-plugin-angular)
+[![NPM](https://nodei.co/npm/eslint-plugin-angular.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/eslint-plugin-angular)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-eslint-plugin-angular/tree/alpha)|
 |--:|:--|
@@ -9,11 +9,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-eslint-plugin-angular/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-eslint-plugin-angular%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-eslint-plugin-angular/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-eslint-plugin-angular%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-eslint-plugin-angular/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/test-report.html](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-eslint-plugin-angular/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-eslint-plugin-angular/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-eslint-plugin-angular/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-eslint-plugin-angular/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-eslint-plugin-angular/build/screenCapture.npmPackageListing.svg)
 
@@ -79,13 +85,11 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "emmanueldemey",
-            "email": "demey.emmanuel@gmail.com"
+            "name": "emmanueldemey"
         }
     ],
     "name": "eslint-plugin-angular",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Gillespie59/eslint-plugin-angularjs.git"
